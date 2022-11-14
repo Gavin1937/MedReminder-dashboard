@@ -26,3 +26,7 @@ yarn-error.log*
 *.7z
 *.zip
 *.rar
+*.py
+
+# folders
+
