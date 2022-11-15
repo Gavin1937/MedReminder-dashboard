@@ -59,7 +59,7 @@ class Home extends Component {
       // let my_info = this.state.my_info;
       return (
         <div className="Home">
-          <h1>Home Page.</h1>
+          <h1>Home</h1>
           <h2>Hello: {this.state.fname+' '+this.state.lname}</h2>
           <h2>Contact Info</h2>
           <h3>Phone: {this.state.phone}</h3>
