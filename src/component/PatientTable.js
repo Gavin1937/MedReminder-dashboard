@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import '../css/Table.css';
 
 
@@ -30,12 +30,12 @@ class PatientTable extends Component {
         <tr key={patient.pat_info.id}>
           <td>{patient.pat_info.id}</td>
           <td>
-            <a href={`https://google.com`} >
+            <a href={`/patientinfo/${patient.pat_info.id}`} >
               {name}
             </a>
           </td>
           <td>
-            {this.isEmptyUser(patient) ? <a href={`https://google.com`} >Add User</a> : <span>{" "}</span>}
+            {this.isEmptyUser(patient) ? <a href={`/adduser/${patient.pat_info.id}`} >Add User</a> : <span>{" "}</span>}
           </td>
         </tr>
       );

@@ -6,9 +6,11 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import AddUser from './component/AddUser';
 import Home from './component/Home';
 import ListPatient from './component/ListPatient';
 import Login from './component/Login';
+import PatientInfo from './component/PatientInfo';
 import SearchPatient from './component/SearchPatient';
 
 
@@ -22,6 +24,8 @@ root.render(
       <Route exact path="/login" element={ <Login /> } />
       <Route exact path="/listpatient" element={ <ListPatient /> } />
       <Route exact path="/searchpatient" element={ <SearchPatient /> } />
+      <Route exact path="/patientinfo/:id" element={ <PatientInfo /> } />
+      <Route exact path="/adduser/:id" element={ <AddUser /> } />
     </Routes>
   </Router>
 );
