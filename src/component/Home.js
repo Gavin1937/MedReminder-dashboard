@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Navigate } from 'react-router-dom';
+import {
+  Navigate
+} from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 class Home extends Component {
@@ -7,7 +9,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // my_info: null,
       id: null,
       fname: null,
       lname: null,
@@ -31,7 +32,6 @@ class Home extends Component {
     .then(response => response.json())
     .then((data) => {
       let payload = data.payload;
-      // this.setState({my_info: data.payload})
       this.setState({
         id: payload.doc_info.id,
         fname: payload.doc_info.fname,
@@ -56,7 +56,6 @@ class Home extends Component {
       );
     }
     else {
-      // let my_info = this.state.my_info;
       return (
         <div className="Home">
           <h1>Home</h1>
@@ -64,6 +63,7 @@ class Home extends Component {
           <h2>Contact Info</h2>
           <h3>Phone: {this.state.phone}</h3>
           <h3>Email: {this.state.email}</h3>
+          <h3><a href="/listpatient">Patient List</a></h3>
         </div>
       );
     }
