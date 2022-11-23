@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import {
+  Navigate
+} from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 class AddUser extends Component {
@@ -8,7 +12,14 @@ class AddUser extends Component {
   }
   
   render() {
-    return null;
+    if (Cookies.get("username") === undefined) {
+      return (
+        <Navigate to="/login" />
+      );
+    }
+    else {
+      return <h1>No Content</h1>;
+    }
   }
   
 }

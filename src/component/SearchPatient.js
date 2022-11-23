@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import {
-  Navigate,
+  Navigate
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import PatientTable from './PatientTable';
