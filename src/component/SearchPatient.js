@@ -111,6 +111,7 @@ class SearchPatient extends Component {
         return (
           <div className="searchPatient">
             <h1><a href="/home">Home</a></h1>
+            <h1><a href="/searchpatient">Search Again</a></h1>
             <PatientTable payload={this.state.payload} />
           </div>
         )
