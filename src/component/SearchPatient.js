@@ -90,6 +90,7 @@ class SearchPatient extends Component {
       if (this.state.ready === false) {
         return (
           <div className="SearchPatient">
+            <h1><a href="/home">Home</a></h1>
             <label htmlFor="param-list">Search Parameters</label>
             <select id="param-list" value={"none"} onChange={this.addParam}>
               <option value="none">None</option>
@@ -109,6 +110,7 @@ class SearchPatient extends Component {
       else {
         return (
           <div className="searchPatient">
+            <h1><a href="/home">Home</a></h1>
             <PatientTable payload={this.state.payload} />
           </div>
         )

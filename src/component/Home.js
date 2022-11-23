@@ -64,6 +64,7 @@ class Home extends Component {
           <h3>Phone: {this.state.phone}</h3>
           <h3>Email: {this.state.email}</h3>
           <h3><a href="/listpatient">Patient List</a></h3>
+          <h3><a href="/searchpatient">Search Patient</a></h3>
         </div>
       );
     }
