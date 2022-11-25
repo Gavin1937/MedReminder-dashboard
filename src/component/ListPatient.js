@@ -64,7 +64,7 @@ class ListPatient extends Component {
       return (
         <div className='ListUser'>
           <h1><a href="/home">Home</a></h1>
-          {this.state.ready && <PatientTable payload={this.state.payload} prev_page={this.state.prev_page} next_page={this.state.next_page} />}
+          {(this.state.ready) ? <PatientTable payload={this.state.payload} prev_page={this.state.prev_page} next_page={this.state.next_page} /> : null}
         </div>
       );
     }

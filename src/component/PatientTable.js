@@ -73,7 +73,7 @@ class PatientTable extends Component {
   render() {
     return (
       <div className="PatientTable">
-        {this.state.ready && this.state.elem}
+        {(this.state.ready) ? this.state.elem : null}
       </div>
     );
   }
