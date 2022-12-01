@@ -10,6 +10,7 @@ import AddUser from './component/AddUser';
 import Home from './component/Home';
 import ListPatient from './component/ListPatient';
 import Login from './component/Login';
+import MedHistory from './component/MedHistory';
 import PatientInfo from './component/PatientInfo';
 import SearchPatient from './component/SearchPatient';
 
@@ -26,6 +27,7 @@ root.render(
       <Route exact path="/searchpatient" element={ <SearchPatient /> } />
       <Route exact path="/patientinfo/:id" element={ <PatientInfo /> } />
       <Route exact path="/adduser/:id" element={ <AddUser /> } />
+      <Route exact path="/medhistory" element={ <MedHistory /> } />
     </Routes>
   </Router>
 );
