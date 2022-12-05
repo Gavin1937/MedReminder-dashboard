@@ -13,6 +13,7 @@ import ListPatient from './component/ListPatient';
 import Login from './component/Login';
 import MedHistory from './component/MedHistory';
 import MedInfo from './component/MedInfo';
+import SearchMed from './component/SearchMed';
 import PatientInfo from './component/PatientInfo';
 import SearchPatient from './component/SearchPatient';
 
@@ -32,6 +33,7 @@ root.render(
       <Route exact path="/medhistory" element={ <MedHistory /> } />
       <Route exact path="/medinfo/:id" element={ <MedInfo /> } />
       <Route exact path="/addmed" element={ <AddMed /> } />
+      <Route exact path="/searchmed" element={ <SearchMed /> } />
     </Routes>
   </Router>
 );

@@ -73,6 +73,8 @@ class AddMed extends Component {
     else if (this.state.ready === false) {
       return (
         <div className="AddMed">
+          <h1>Add Medication</h1>
+          <h3><a href="/searchmed">Search & Manage Medication</a></h3>
           <form onSubmit={this.doAddMed}>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" />
