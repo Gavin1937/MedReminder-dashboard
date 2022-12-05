@@ -4,6 +4,12 @@ import {
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import PatientTable from './PatientTable';
+import NavBar from "../component/NavBar";
+import LoadingPage from './LoadingPage';
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 class ListPatient extends Component {
   
@@ -63,8 +69,12 @@ class ListPatient extends Component {
     else {
       return (
         <div className='ListUser'>
-          <h1><a href="/home">Home</a></h1>
-          {(this.state.ready) ? <PatientTable payload={this.state.payload} prev_page={this.state.prev_page} next_page={this.state.next_page} /> : null}
+          <Container>
+            <Row>
+              <div className="navbar"><NavBar /></div>
+            </Row>
+            {(this.state.ready) ? <PatientTable payload={this.state.payload} prev_page={this.state.prev_page} next_page={this.state.next_page} /> : <LoadingPage />}
+          </Container>
         </div>
       );
     }

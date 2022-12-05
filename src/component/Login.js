@@ -1,6 +1,16 @@
 import { Component } from 'react';
 import Cookies from 'js-cookie';
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 let md5 = require('md5');
+
 
 class Login extends Component {
   
@@ -81,18 +91,35 @@ class Login extends Component {
   
   render = () => {
     return (
-      <div className="Login">
-        <h1>Login Page.</h1>
-        <p id="error" style={{color:"red"}}></p>
-        <form onSubmit={this.login}>
-          <label htmlFor="uname">username</label>
-          <input id="uname" type="text" />
-          <label htmlFor="pwd">password</label>
-          <input id="pwd" type="password" />
-          <label htmlFor="cookie">Use cookie to store login info?</label>
-          <input id="cookie" type="checkbox" />
-          <input type="submit" />
-        </form>
+      <div className="Login div-center">
+        <Container className="pt-5">
+          <Row className="h-100 d-flex align-items-center justify-content-center">
+            <Col xs={5} className="m-2">
+            <Card>
+              <Card.Title className="m-2">Login To MedReminder Dashboard</Card.Title>
+              <Form onSubmit={this.login}>
+                <Form.Group className="m-2">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control id="uname" type="text" placeholder="Enter Username" />
+                </Form.Group>
+                
+                <Form.Group className="m-2">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control id="pwd" type="password" placeholder="Password" />
+                </Form.Group>
+                
+                <Form.Group className="m-2">
+                  <Form.Check type="checkbox" id="cookie" label="Use cookie to store login info?" />
+                </Form.Group>
+                
+                <Button className="m-2" variant="primary" type="submit">
+                  Login
+                </Button>
+              </Form>
+            </Card>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   };

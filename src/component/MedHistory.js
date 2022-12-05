@@ -3,7 +3,14 @@ import {
   Navigate
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import '../css/Table.css';
+import NavBar from "../component/NavBar";
+import LoadingPage from "../component/LoadingPage";
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table';
 
 
 class MedHistory extends Component {
@@ -62,20 +69,29 @@ class MedHistory extends Component {
         }
         let elem = (
           <div>
-            <h1>Medication History</h1>
-            <table>
-              <thead>
-                <tr>
-                  <td>Id</td>
-                  <td>Medication Id</td>
-                  <td>User Id</td>
-                  <td>Medication Time</td>
-                </tr>
-              </thead>
-              <tbody>
-                {array}
-              </tbody>
-            </table>
+            <Container>
+              <Row>
+                <div className="navbar"><NavBar /></div>
+              </Row>
+              <Row className="h-100 d-flex align-items-center justify-content-center">
+                <Card>
+                  <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>Medication History</Card.Title>
+                  <Table striped bordered hover className="m-2">
+                    <thead>
+                      <tr>
+                        <td>Id</td>
+                        <td>Medication Id</td>
+                        <td>User Id</td>
+                        <td>Medication Time</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {array}
+                    </tbody>
+                  </Table>
+                </Card>
+              </Row>
+            </Container>
           </div>
         );
         this.setState({elem: elem, ready: true});
@@ -94,7 +110,7 @@ class MedHistory extends Component {
     else {
       return (
         <div className="MedicationHistory">
-          {(this.state.ready) ? this.state.elem : null}
+          {(this.state.ready) ? this.state.elem : <LoadingPage />}
         </div>
       );
     }

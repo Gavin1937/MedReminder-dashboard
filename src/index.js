@@ -6,6 +6,9 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// other components
 import AddMed from './component/AddMed';
 import AddUser from './component/AddUser';
 import Home from './component/Home';

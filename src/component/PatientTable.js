@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import '../css/Table.css';
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table';
 
 
 class PatientTable extends Component {
@@ -47,21 +52,27 @@ class PatientTable extends Component {
     let isEmpty = (page) => { return (page === undefined || page === null); }
     this.setState({elem: (
       <div className="Table">
-        <h1>User</h1>
-        <table>
-          <thead>
-            <tr key="Title">
-              <th>ID</th>
-              <th>Name</th>
-              <th>Add User</th>
-            </tr>
-          </thead>
-          <tbody>{array}</tbody>
-        </table>
-        <div className="PageLink">
-          {isEmpty(prev_page) ? <p>{' '}</p> : <a style={{paddingLeft:"8%"}} onClick={this.clearPatientTable} href={prev_page}>Previous Page</a>}
-          {isEmpty(next_page) ? <p>{' '}</p> : <a style={{paddingLeft:"8%"}} onClick={this.clearPatientTable} href={next_page}>Next Page</a>}
-        </div>
+        <Container>
+          <Row className="h-100 d-flex align-items-center justify-content-center">
+            <Card>
+              <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>User</Card.Title>
+              <Table striped bordered hover className="m-2">
+                <thead>
+                  <tr key="Title">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Add User</th>
+                  </tr>
+                </thead>
+                <tbody>{array}</tbody>
+              </Table>
+              <div className="PageLink">
+                {isEmpty(prev_page) ? <p>{' '}</p> : <a className="btn btn-primary m-2" onClick={this.clearPatientTable} href={prev_page}>Previous Page</a>}
+                {isEmpty(next_page) ? <p>{' '}</p> : <a className="btn btn-primary m-2" onClick={this.clearPatientTable} href={next_page}>Next Page</a>}
+              </div>
+            </Card>
+          </Row>
+        </Container>
       </div>
     ), ready: true});
   }

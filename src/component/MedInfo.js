@@ -3,6 +3,13 @@ import {
   Navigate
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import NavBar from "../component/NavBar";
+import LoadingPage from "../component/LoadingPage";
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 
 
 class MedInfo extends Component {
@@ -54,19 +61,35 @@ class MedInfo extends Component {
     else if (this.state.ready) {
       return (
         <div className="MedInfo">
-          <h1>Medication Information</h1>
-          <h3>Id: {this.state.payload.id}</h3>
-          <h3>Name: {this.state.payload.name}</h3>
-          <h3>Description: {this.state.payload.description}</h3>
-          <h3>Frequency: {this.state.payload.frequency}</h3>
-          <h3>Early Time: {this.state.payload.early_time}</h3>
-          <h3>Late Time: {this.state.payload.late_time}</h3>
-          <h3><a href="/searchmed">Medication Search</a></h3>
+          <Container>
+            <Row>
+              <div className="navbar"><NavBar /></div>
+            </Row>
+            <Row>
+              <div className="my-3">
+                <Card>
+                  <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>Medication Information</Card.Title>
+                </Card>
+              </div>
+            </Row>
+            <Row>
+              <div className="Home">
+                <Card>
+                  <Card.Title className="m-2">Id: {this.state.payload.id}</Card.Title>
+                  <Card.Title className="m-2">Name: {this.state.payload.name}</Card.Title>
+                  <Card.Title className="m-2">Description: {this.state.payload.description}</Card.Title>
+                  <Card.Title className="m-2">Frequency: {this.state.payload.frequency}</Card.Title>
+                  <Card.Title className="m-2">Early Time: {this.state.payload.early_time}</Card.Title>
+                  <Card.Title className="m-2">Late Time: {this.state.payload.late_time}</Card.Title>
+                </Card>
+              </div>
+            </Row>
+          </Container>
         </div>
       );
     }
     else {
-      return null;
+      return <LoadingPage />;
     }
   }
   

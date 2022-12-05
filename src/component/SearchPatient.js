@@ -4,6 +4,16 @@ import {
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import PatientTable from './PatientTable';
+import NavBar from "../component/NavBar";
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 class SearchPatient extends Component {
   
@@ -67,17 +77,17 @@ class SearchPatient extends Component {
       }
     };
     fetch(`/api/user/mypatients/find/${this.state.page}?${new URLSearchParams(searchParam)}`, requestOptions)
-    .then(response => response.json())
-    .then((data) => {
-      let payload = data.payload;
-      this.setState({
-        payload: payload,
-        ready: true
+      .then(response => response.json())
+      .then((data) => {
+        let payload = data.payload;
+        this.setState({
+          payload: payload,
+          ready: true
+        });
+      })
+      .catch(error => {
+        console.log(error);
       });
-    })
-    .catch(error => {
-      console.log(error);
-    });
   }
   
   render() {
@@ -90,29 +100,57 @@ class SearchPatient extends Component {
       if (this.state.ready === false) {
         return (
           <div className="SearchPatient">
-            <h1><a href="/home">Home</a></h1>
-            <label htmlFor="param-list">Search Parameters</label>
-            <select id="param-list" value={"none"} onChange={this.addParam}>
-              <option value="none">None</option>
-              <option value="fname">First Name</option>
-              <option value="lname">Last Name</option>
-              <option value="phone">Phone</option>
-              <option value="email">Email</option>
-            </select>
-            <form onSubmit={this.doSearch}>
-              <label htmlFor="search-bar">Search Patient</label>
-              <input id="search-bar" type="text"/>
-              <input id="search-sbm" type="submit" value="Search" />
-            </form>
+            <Container>
+              <Row>
+                <div className="navbar"><NavBar /></div>
+              </Row>
+              <Row>
+                <div className="AddUser">
+                  <Container className="pt-5">
+                    <Row className="h-100 d-flex align-items-center justify-content-center">
+                      <Col xs={8} className="m-2">
+                        <Card>
+                          <Card.Title className="m-2">Add New User</Card.Title>
+                          <Form onSubmit={this.doSearch}>
+                            <Form.Group className="m-2">
+                              <Form.Label>Search Parameters</Form.Label>
+                              <Form.Select aria-label="Default select example" id="param-list" onChange={this.addParam}>
+                                <option value="none">None</option>
+                                <option value="fname">First Name</option>
+                                <option value="lname">Last Name</option>
+                                <option value="phone">Phone</option>
+                                <option value="email">Email</option>
+                              </Form.Select>
+                            </Form.Group>
+                            
+                            <Form.Group className="m-2">
+                              <Form.Label>Search Patient</Form.Label>
+                              <Form.Control id="search-bar" type="text" placeholder="Search Keywords" />
+                            </Form.Group>
+                            
+                            <Button className="m-2" variant="primary" type="submit">
+                              Search
+                            </Button>
+                          </Form>
+                        </Card>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
+              </Row>
+            </Container>
           </div>
         );
       }
       else {
         return (
           <div className="searchPatient">
-            <h1><a href="/home">Home</a></h1>
-            <h1><a href="/searchpatient">Search Again</a></h1>
-            <PatientTable payload={this.state.payload} />
+            <Container>
+              <Row>
+                <div className="navbar"><NavBar /></div>
+              </Row>
+              <PatientTable payload={this.state.payload} />
+            </Container>
           </div>
         )
       }

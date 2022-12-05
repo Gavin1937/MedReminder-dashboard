@@ -3,6 +3,13 @@ import {
   Navigate
 } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import NavBar from "../component/NavBar";
+
+// react-boostrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+
 
 class Home extends Component {
   
@@ -57,15 +64,29 @@ class Home extends Component {
     }
     else {
       return (
-        <div className="Home">
-          <h1>Home</h1>
-          <h2>Hello: {this.state.fname+' '+this.state.lname}</h2>
-          <h2>Contact Info</h2>
-          <h3>Phone: {this.state.phone}</h3>
-          <h3>Email: {this.state.email}</h3>
-          <h3><a href="/listpatient">Patient List</a></h3>
-          <h3><a href="/searchpatient">Search & Manage Patient</a></h3>
-          <h3><a href="/searchmed">Search & Manage Medication</a></h3>
+        <div>
+          <Container>
+            <Row>
+              <div className="navbar"><NavBar /></div>
+            </Row>
+            <Row>
+              <div className="my-3">
+                <Card>
+                  <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>Home</Card.Title>
+                </Card>
+              </div>
+            </Row>
+            <Row>
+              <div className="Home">
+                <Card>
+                  <Card.Title className="m-2">Hello: {this.state.fname+' '+this.state.lname}</Card.Title>
+                  <Card.Title className="m-2">Contact Info</Card.Title>
+                  <Card.Title className="m-2">Phone: {this.state.phone}</Card.Title>
+                  <Card.Title className="m-2">Email: {this.state.email}</Card.Title>
+                </Card>
+              </div>
+            </Row>
+          </Container>
         </div>
       );
     }
