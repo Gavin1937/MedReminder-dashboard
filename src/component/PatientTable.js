@@ -26,16 +26,17 @@ class PatientTable extends Component {
     let array = [];
     for (const patient of this.props.payload.patients) {
       let name = patient.pat_info.fname + " " + patient.pat_info.lname;
+      let emptyStat = this.isEmptyUser(patient);
       array.push(
         <tr key={patient.pat_info.id}>
           <td>{patient.pat_info.id}</td>
           <td>
-            <a href={`/patientinfo/${patient.pat_info.id}`} >
+            <a href={`/patientinfo/${emptyStat ? 'p'+patient.pat_info.id : 'u'+patient.id}`} >
               {name}
             </a>
           </td>
           <td>
-            {this.isEmptyUser(patient) ? <a href={`/adduser/${patient.pat_info.id}`} >Add User</a> : <span>{"In System"}</span>}
+            {emptyStat ? <a href={`/adduser/${patient.pat_info.id}`} >Add User</a> : <span>{"In System"}</span>}
           </td>
         </tr>
       );

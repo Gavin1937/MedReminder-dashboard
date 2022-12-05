@@ -24,7 +24,12 @@ class PatientInfo extends Component {
   
   getPatientInfo = () => {
     let id = window.location.pathname.split("/").at(-1);
-    
+    let mat = id.match(/([pu])(\d+)/);
+    if (mat[1] !== "u") {
+      this.setState({notUser: true, ready: true});
+      return;
+    }
+    id = mat[2];
     const requestOptions = {
       method: 'GET',
       headers: {
@@ -59,6 +64,8 @@ class PatientInfo extends Component {
       return (
         <div className="PatientInfo">
           <h1>This Patient Isn't In Our System</h1>
+          <h3><a href="/">Home</a></h3>
+          <h3><a href="/listpatient">Patient List</a></h3>
         </div>
       );
     }
@@ -70,6 +77,7 @@ class PatientInfo extends Component {
           <h2>Contact Info</h2>
           <h3>Phone: {this.state.payload.pat_info.phone}</h3>
           <h3>Email: {this.state.payload.pat_info.email}</h3>
+          <h3><a href="/listpatient">Patient List</a></h3>
         </div>
       );
     }
