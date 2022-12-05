@@ -6,6 +6,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import AddMed from './component/AddMed';
 import AddUser from './component/AddUser';
 import Home from './component/Home';
 import ListPatient from './component/ListPatient';
@@ -30,6 +31,7 @@ root.render(
       <Route exact path="/adduser/:id" element={ <AddUser /> } />
       <Route exact path="/medhistory" element={ <MedHistory /> } />
       <Route exact path="/medinfo/:id" element={ <MedInfo /> } />
+      <Route exact path="/addmed" element={ <AddMed /> } />
     </Routes>
   </Router>
 );
