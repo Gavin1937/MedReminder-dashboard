@@ -35,7 +35,7 @@ class PatientTable extends Component {
             </a>
           </td>
           <td>
-            {this.isEmptyUser(patient) ? <a href={`/adduser/${patient.pat_info.id}`} >Add User</a> : <span>{" "}</span>}
+            {this.isEmptyUser(patient) ? <a href={`/adduser/${patient.pat_info.id}`} >Add User</a> : <span>{"In System"}</span>}
           </td>
         </tr>
       );
