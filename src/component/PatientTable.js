@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
+import LoadingPage from './LoadingPage';
 
 
 class PatientTable extends Component {
@@ -87,7 +88,7 @@ class PatientTable extends Component {
   render() {
     return (
       <div className="PatientTable">
-        {(this.state.ready) ? this.state.elem : null}
+        {(this.state.ready) ? this.state.elem : <LoadingPage />}
       </div>
     );
   }

@@ -73,9 +73,14 @@ class MedHistory extends Component {
               <Row>
                 <div className="navbar"><NavBar /></div>
               </Row>
+              <a className="m-2 btn btn-danger" style={{width:"90px"}} href={`/patientinfo/u${uid}`}>
+                Back
+              </a>
               <Row className="h-100 d-flex align-items-center justify-content-center">
                 <Card>
-                  <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>Medication History</Card.Title>
+                  <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>
+                    Medication History
+                  </Card.Title>
                   <Table striped bordered hover className="m-2">
                     <thead>
                       <tr>

@@ -115,7 +115,7 @@ class PatientInfo extends Component {
                   <Card.Title className="m-2">Email: {this.state.payload.pat_info.email}</Card.Title>
                   <Card.Title className="m-2">Username: {this.state.payload.username}</Card.Title>
                   <Card.Title className="m-2">
-                    <a href={`/medhistory?uid=${this.state.payload.id}&mid=${this.state.payload.med_id}`}>
+                    <a className="btn btn-primary" href={`/medhistory?uid=${this.state.payload.id}&mid=${this.state.payload.med_id}`}>
                       Medication History
                     </a>
                   </Card.Title>
