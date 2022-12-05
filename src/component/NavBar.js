@@ -10,7 +10,7 @@ class NavBar extends Component {
     return (
       <Navbar fixed="top" sticky="top" expand="lg" className="navbar">
         <Container>
-          <Navbar.Brand href="/home">Home</Navbar.Brand>
+          <Navbar.Brand href="/home">MedReminder</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
