@@ -55,7 +55,9 @@ class PatientTable extends Component {
         <Container>
           <Row className="h-100 d-flex align-items-center justify-content-center">
             <Card>
-              <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>User</Card.Title>
+              <Card.Title className="m-2" style={{fontSize:"x-large",fontWeight:"bold"}}>
+                Patient Table
+              </Card.Title>
               <Table striped bordered hover className="m-2">
                 <thead>
                   <tr key="Title">

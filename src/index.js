@@ -20,7 +20,7 @@ import SearchMed from './component/SearchMed';
 import PatientInfo from './component/PatientInfo';
 import SearchPatient from './component/SearchPatient';
 
-
+document.title = "MedReminder Dashboard";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
