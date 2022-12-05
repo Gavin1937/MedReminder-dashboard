@@ -85,6 +85,7 @@ class SearchPatient extends Component {
                       <Col xs={8} className="m-2">
                       <Card>
                         <Card.Title className="m-2">Search Medication</Card.Title>
+                        {(this.state.searchFail) ? <Card.Title className="m-2 errmsg" style={{color:"red"}}>Cannot find Medication with supplied parameters.</Card.Title> : null}
                         <Form className="search-form" onSubmit={this.doSearch}>
                           <Form.Group className="m-2">
                             <Form.Label>Name</Form.Label>

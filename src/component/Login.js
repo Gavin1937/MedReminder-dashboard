@@ -22,6 +22,7 @@ class Login extends Component {
       username: null,
       secret: null,
       expire: null,
+      loginError: false
     };
     
     // bind functions that requires setState()
@@ -77,52 +78,66 @@ class Login extends Component {
     .then(response => response.json())
     .then((data) => {
       const payload = data.payload;
-      this.setState({logged_in: true, username: username, secret: payload.secret, expire: payload.expire})
+      if (data.ok) {
+        this.setState({logged_in: true, username: username, secret: payload.secret, expire: payload.expire, loginFail: false});
+        
+        // rm ui, set cookies & redirect
+        document.querySelector('.Login').remove()
+        this.trySetCookies()
+      }
+      else {
+        this.setState({logged_in: false, username: null, secret: null, expire: null, loginFail: true});
+      }
     })
     .catch(error => {
       console.log(error);
     });
-    
-    // rm ui, set cookies & redirect
-    document.querySelector('.Login').remove()
-    this.trySetCookies()
-    
   };
   
   render = () => {
-    return (
-      <div className="Login div-center">
-        <Container className="pt-5">
-          <Row className="h-100 d-flex align-items-center justify-content-center">
-            <Col xs={5} className="m-2">
-            <Card>
-              <Card.Title className="m-2">Login To MedReminder Dashboard</Card.Title>
-              <Form onSubmit={this.login}>
-                <Form.Group className="m-2">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control id="uname" type="text" placeholder="Enter Username" />
-                </Form.Group>
-                
-                <Form.Group className="m-2">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control id="pwd" type="password" placeholder="Password" />
-                </Form.Group>
-                
-                <Form.Group className="m-2">
-                  <Form.Check type="checkbox" id="cookie" label="Use cookie to store login info?" />
-                </Form.Group>
-                
-                <Button className="m-2" variant="primary" type="submit">
-                  Login
-                </Button>
-              </Form>
-            </Card>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  };
+    if (this.state.logged_in === false) {
+      return (
+        <div className="Login div-center">
+          <Container className="pt-5">
+            <Row className="h-100 d-flex align-items-center justify-content-center">
+              <Col xs={5} className="m-2">
+              <Card>
+                <Card.Title className="m-2">Login To MedReminder Dashboard</Card.Title>
+                {
+                  (this.state.loginFail) ?
+                  (
+                    <Card.Title className="m-2 errmsg" style={{color:"red"}}>
+                      Failed to Login. Wrong Username or Password.
+                    </Card.Title>
+                  ) : null
+                }
+                <Form onSubmit={this.login}>
+                  <Form.Group className="m-2">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control id="uname" type="text" placeholder="Enter Username" />
+                  </Form.Group>
+                  
+                  <Form.Group className="m-2">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control id="pwd" type="password" placeholder="Password" />
+                  </Form.Group>
+                  
+                  <Form.Group className="m-2">
+                    <Form.Check type="checkbox" id="cookie" label="Use cookie to store login info?" />
+                  </Form.Group>
+                  
+                  <Button className="m-2" variant="primary" type="submit">
+                    Login
+                  </Button>
+                </Form>
+              </Card>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      );
+    }
+  }
   
 }
 
