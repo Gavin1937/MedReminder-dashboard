@@ -52,8 +52,8 @@ class MedHistory extends Component {
         for (let i = 0; i < payload.length; ++i) {
           let time = new Date(parseInt(payload.at(i).med_time) * 1000)
           let year = String(time.getFullYear()).padStart(4,"0");
-          let month = String(time.getMonth()).padStart(2,"0");
-          let day = String(time.getDay()).padStart(2,"0");
+          let month = String(time.getMonth()+1).padStart(2,"0");
+          let day = String(time.getDate()).padStart(2,"0");
           let hour = String(time.getHours()).padStart(2,"0");
           let min = String(time.getMinutes()).padStart(2,"0");
           let sec = String(time.getSeconds()).padStart(2,"0");
