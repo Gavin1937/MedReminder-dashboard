@@ -105,12 +105,12 @@ class SearchPatient extends Component {
                 <div className="navbar"><NavBar /></div>
               </Row>
               <Row>
-                <div className="AddUser">
+                <div className="SearchUser">
                   <Container className="pt-5">
                     <Row className="h-100 d-flex align-items-center justify-content-center">
                       <Col xs={8} className="m-2">
                         <Card>
-                          <Card.Title className="m-2">Add New User</Card.Title>
+                          <Card.Title className="m-2">Search A User</Card.Title>
                           <Form onSubmit={this.doSearch}>
                             <Form.Group className="m-2">
                               <Form.Label>Search Parameters</Form.Label>
